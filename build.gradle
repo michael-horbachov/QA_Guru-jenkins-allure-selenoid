@@ -15,8 +15,9 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
-            "io.qameta.allure:allure-selenide:$allureVersion"
+            "org.aeonbits.owner:owner:1.0.12"
     )
     testRuntimeOnly(
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
@@ -52,5 +53,11 @@ tasks.withType(Test) {
 task some_run(type: Test) {
     useJUnitPlatform {
         includeTags "terminal"
+    }
+}
+
+task owner_test(type: Test) {
+    useJUnitPlatform {
+        includeTags "owner"
     }
 }
